@@ -84,14 +84,52 @@ nam_blog/
 
 ---
 
-## 🛠️ Technologies Used
-- **Python 3.8+** & **Flask**  
-- **ONNX Runtime** (for AI models)  
-- **Pillow & OpenCV** (image processing)  
-- **NumPy** (array processing)  
-- **PostgreSQL** (database)  
-- **Flask-Mail** (Gmail email verification)  
-- **Werkzeug** (utilities, secure_filename)  
+### 🛠️ Technologies Used
+```
+🔹 Back-end
+
+Python 3.8+ – main programming language
+
+Flask – web framework for building the server and APIs
+
+Flask-Mail – sending emails (used for Gmail verification)
+
+Werkzeug – utilities for secure filenames, password hashing, etc.
+
+ONNX Runtime – run AI models on the server
+
+NumPy – numerical array processing for image & data manipulation
+
+Pillow – image handling and processing
+
+OpenCV – advanced image processing (filters, resizing, etc.)
+
+🔹 Front-end
+
+HTML5 / CSS3 / JS – structure, style, and interactivity
+
+Font Awesome – icons for buttons, profile, and UI elements
+
+Responsive design – ensure site works on desktop and mobile
+
+🔹 Machine Learning / AI
+
+ONNX Models (.onnx) – pre-trained AI models for image style transfer:
+
+AnimeGANv2_Paprika.onnx 🌸 – Anime Paprika style
+
+AnimeGANv2_Shinkai.onnx 🌊 – Shinkai style
+
+AnimeGANv3_PortraitSketch_25.onnx ✏️ – Portrait sketch style
+
+generator_hayao.onnx 🎬 – Hayao Miyazaki style
+
+🔹 Database
+
+PostgreSQL – relational database for users, posts, comments, likes, and follows
+
+SQLAlchemy / psycopg2 – optional (if using ORM / Python-Postgres connection)
+```
 
 ---
 
@@ -215,8 +253,9 @@ import numpy as np
 | followed_id | INTEGER| Foreign key to `users.id`           |
 
 # Load mmodel
-for example:
+```
 model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
+```
 
 ---
 
@@ -264,5 +303,6 @@ Flask & Python libraries
 Hanoi University of Science and Technology
 Real estate data sources for Hanoi market
 Open source libraries and frameworks used
+```
 
 **For questions or support, please contact the development team or create an issue in the repository.**
