@@ -55,67 +55,60 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 | `AnimeGANv3_PortraitSketch_25.onnx` ✏️ | Portrait Sketch |
 | `generator_hayao.onnx` 🎬 | Hayao Miyazaki style |
 
-### 💾 Image Management
-- Upload images from your device  
-- Render images with AI models  
-- Download or post images directly to the blog  
+💾 Image Management
 
----
+Upload images from your device
 
-## 📂 Project Structure
+Render images with AI models
 
-```
+Download or post images directly to the blog
+
+📂 Project Structure
 nam_blog/
-├─ models/ # Contains AI models (.onnx)
-├─ static/ # CSS, JS, static images
-│ ├─ avatar/
-│ ├─ images/
-│ ├─ script.js
-│ └─ style.css
-├─ templates/ # HTML templates
-│ ├─ account.html
-│ ├─ index.html
-│ ├─ login.html
-│ ├─ picture.html
-│ ├─ register.html
-│ └─ verify.html
-├─ app.py # Main Flask application
-└─ requirements.txt # Python dependencies
+├─ models/           # Contains AI models (.onnx)
+├─ static/           # CSS, JS, static images
+│   ├─ avatar/
+│   ├─ images/
+│   ├─ script.js
+│   └─ style.css
+├─ templates/        # HTML templates
+│   ├─ account.html
+│   ├─ index.html
+│   ├─ login.html
+│   ├─ picture.html
+│   ├─ register.html
+│   └─ verify.html
+├─ app.py            # Main Flask application
+└─ requirements.txt  # Python dependencies
 
----
+🛠️ Technologies Used
 
-## 🛠️ Technologies Used
-- **Python 3.8+** & **Flask**  
-- **ONNX Runtime** (for AI models)  
-- **Pillow & OpenCV** (image processing)  
-- **NumPy** (array processing)  
-- **PostgreSQL** (database)  
-- **Flask-Mail** (Gmail email verification)  
-- **Werkzeug** (utilities, secure_filename)  
+Python 3.8+ & Flask
 
----
+ONNX Runtime (for AI models)
 
-## 🚀 Installation & Running
+Pillow & OpenCV (image processing)
 
----
+NumPy (array processing)
 
-### 1️⃣ Clone the repository
-```bash
+PostgreSQL (database)
+
+Flask-Mail (Gmail email verification)
+
+Werkzeug (utilities, secure_filename)
+
+🚀 Installation & Running
+1️⃣ Clone the repository
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
 
----
-
-### 2️⃣ Install dependencies
-```bash
+2️⃣ Install dependencies
 pip install -r requirements.txt
 
----
-
-### 3️⃣ Configure PostgreSQL Database
-```bash
+3️⃣ Configure PostgreSQL Database
 Create database: nam_blog
 Add user and password, for example:
+
 DB_CONFIG = {
     'dbname': 'nam_blog',
     'user': 'postgres',
@@ -123,28 +116,29 @@ DB_CONFIG = {
     'host': 'localhost',
     'port': '5432'
 }
+
 Create required tables: users, posts, comments, likes, avatars.
 
----
-
-### 4️⃣ Configure Gmail
+4️⃣ Configure Gmail
 MAIL_USERNAME = 'your_email@gmail.com'
 MAIL_PASSWORD = 'your_app_password'  # Use App Password
 
----
-
-### 5️⃣ Run Flask Server
-```bash
+5️⃣ Run Flask Server
 python app.py
+
+
 Open browser: http://127.0.0.1:5000/
 
----
-
-### 🔧 Running AI Models
-Example of rendering an image:
+🔧 Running AI Models
 from PIL import Image
 import onnxruntime as ort
 import numpy as np
+
+# Load model
+model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
+
+# Process input image and run inference
+# ...
 
 ## 🗄 Database Schema
 
