@@ -61,7 +61,8 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 -  Download or post images directly to the blog
   
     ---
-   
+
+   ## 📂 Project Structure
 ```
 nam_blog/
 ├─ models/ # Contains AI models (.onnx)
@@ -83,8 +84,6 @@ nam_blog/
 
 ---
 
-## 📂 Project Structure
-
 ## 🛠️ Technologies Used
 - **Python 3.8+** & **Flask**  
 - **ONNX Runtime** (for AI models)  
@@ -101,20 +100,20 @@ nam_blog/
 ---
 
 ### 1️⃣ Clone the repository
-bash 
+```bash 
 git clone https://github.com/PhamNam342/nam_blog.git cd nam_blog
 
 --- 
 
 ### 2️⃣ Install dependencies
-bash
+```bash
 pip install -r requirements.txt
 
 ---
 
 
 ### 3️⃣ Configure PostgreSQL Database
-bash 
+```bash 
 Create database: nam_blog Add user and password, for example: 
 DB_CONFIG = { 'dbname': 'nam_blog', 
                 'user': 'postgres',     
@@ -123,14 +122,15 @@ DB_CONFIG = { 'dbname': 'nam_blog',
                 } Create required tables: users, posts, comments, likes, avatars.
                 --- 
                 
-### 4️⃣ Configure Gmail 
+### 4️⃣ Configure Gmail
+```bash
 MAIL_USERNAME = 'your_email@gmail.com' 
 MAIL_PASSWORD = 'your_app_password' # Use App Password 
 
 --- 
 
 ### 5️⃣ Run Flask Server
-bash
+```bash
 python app.py
 Open browser: http://127.0.0.1:5000/
 
@@ -230,6 +230,7 @@ Open a Pull Request
 ---
 
 ### Flask Configuration
+```bash
 app.secret_key = 'your_secret_key'  # Change for production
 
 ---
