@@ -79,8 +79,10 @@ nam_blog/
 │ └─ verify.html
 ├─ app.py # Main Flask application
 └─ requirements.txt # Python dependencies
+```
 
 ---
+
 ## 📂 Project Structure
 
 ## 🛠️ Technologies Used
