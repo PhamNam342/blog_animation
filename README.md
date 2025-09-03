@@ -100,39 +100,47 @@ nam_blog/
 ---
 
 ### 1️⃣ Clone the repository
-```bash 
+```
 git clone https://github.com/PhamNam342/nam_blog.git cd nam_blog
+```
 
 --- 
 
 ### 2️⃣ Install dependencies
-```bash
+```
 pip install -r requirements.txt
+```
 
 ---
 
 
 ### 3️⃣ Configure PostgreSQL Database
-```bash 
+```
 Create database: nam_blog Add user and password, for example: 
 DB_CONFIG = { 'dbname': 'nam_blog', 
                 'user': 'postgres',     
                 'password': 'your_password', 
                 'host': 'localhost', 'port': '5432'
                 } Create required tables: users, posts, comments, likes, avatars.
+```
+
                 --- 
+
                 
 ### 4️⃣ Configure Gmail
-```bash
+```
 MAIL_USERNAME = 'your_email@gmail.com' 
 MAIL_PASSWORD = 'your_app_password' # Use App Password 
+```
 
 --- 
 
+
 ### 5️⃣ Run Flask Server
-```bash
+```
 python app.py
 Open browser: http://127.0.0.1:5000/
+```
 
 ---
 
@@ -218,7 +226,7 @@ Users can upload images via the web interface, select a model, render, and downl
 
 ### 🤝 Contributing
 Fork the repository
-
+```
 Create a feature branch: git checkout -b feature/amazing-feature
 
 Commit your changes: git commit -m 'Add amazing feature'
@@ -226,12 +234,14 @@ Commit your changes: git commit -m 'Add amazing feature'
 Push: git push origin feature/amazing-feature
 
 Open a Pull Request
+```
 
 ---
 
 ### Flask Configuration
-```bash
+```
 app.secret_key = 'your_secret_key'  # Change for production
+```
 
 ---
 
