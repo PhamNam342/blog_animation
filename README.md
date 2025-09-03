@@ -63,7 +63,6 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 ---
 
 ## 📂 Project Structure
----
 ```
 nam_blog/
 ├─ models/ # Contains AI models (.onnx)
@@ -81,7 +80,9 @@ nam_blog/
 │ └─ verify.html
 ├─ app.py # Main Flask application
 └─ requirements.txt # Python dependencies
+
 ---
+
 ## 🛠️ Technologies Used
 - **Python 3.8+** & **Flask**  
 - **ONNX Runtime** (for AI models)  
@@ -94,16 +95,22 @@ nam_blog/
 ---
 
 ## 🚀 Installation & Running
+
 ---
+
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
+
 ---
+
 ### 2️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
+
 ---
+
 ### 3️⃣ Configure PostgreSQL Database
 ```bash
 Create database: nam_blog
@@ -196,7 +203,9 @@ import numpy as np
 # Load mmodel
 for example:
 model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
+
 ---
+
 # Process input image and run inference
 # ...
 Users can upload images via the web interface, select a model, render, and download or post the result.
@@ -211,17 +220,25 @@ Commit your changes: git commit -m 'Add amazing feature'
 Push: git push origin feature/amazing-feature
 
 Open a Pull Request
+
 ---
+
 ### Flask Configuration
 app.secret_key = 'your_secret_key'  # Change for production
+
 ---
+
 ### 📄 License
 Personal / Academic project.
+
 ---
+
 ### 👥 Authors
 Pham Nam – Developer & Student
 Email: nam1234kan@gmail.com
+
 ---
+
 ### 🙏 Acknowledgments
 ```
 Gmail API for email verification
