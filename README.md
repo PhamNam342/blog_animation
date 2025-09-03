@@ -93,7 +93,7 @@ nam_blog/
 ---
 
 ## 🚀 Installation & Running
-
+---
 ### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/PhamNam342/nam_blog.git
@@ -130,7 +130,7 @@ Example of rendering an image:
 from PIL import Image
 import onnxruntime as ort
 import numpy as np
----
+
 ## 🗄 Database Schema
 
 ### Main Tables
