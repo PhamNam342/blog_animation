@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>📝 Blog - Nam-blogee</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"> 
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  background: #f0f4f8;
+  min-height: 100vh;
+}
+.sidebar {
+    width: 220px;
+    background-color: #1a4e8a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed;
+    height: 100vh;
+  }
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s;
+    font-size: 16px;
+  }
+  .sidebar a:hover {
+    background-color: #3a78c2;
+  }
+
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+.new-blog {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  padding: 15px 20px;
+}
+
+.new-blog textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: vertical;
+}
+
+.new-blog button {
+  margin-top: 10px;
+  background: #1a4e8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.new-blog button:hover {
+  background: #3a78c2;
+}
+#postsContainer {
+  display: block;        
+  width: 100%;
+  max-width: 600px;     
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.post {
+  display: block;       
+  width: 100%;           
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  padding: 15px 20px;
+  margin-bottom: 20px;   /* khoảng cách giữa post */
+  box-sizing: border-box;
+}
+.post img,
+.post video {
+  width: 100%;
+  max-height: 450px;      
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+h1 {
+  margin-top: 0;
+  color: #1a4e8a;
+}
+
+.meta {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.author {
+  font-weight: bold;
+  color: #1a4e8a;
+}
+
+.stats {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #777;
+}
+
+.stats i {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.stats .liked {
+  color: #e74c3c;
+}
+
+.stats .comments {
+  margin-left: 15px;
+}
+.comment {
+  margin-top: 10px;
+  font-size: 13px;
+  border-top: 1px solid #eee;
+  padding-top: 5px;
+}
+
+.comment .comment-author {
+  font-weight: bold;
+  color: #1a4e8a;
+  margin-right: 5px;
+}
+
+.comment img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.comment-form {
+  display: flex;
+  margin-top: 5px;
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.comment-form button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: #1a4e8a;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background: #3a78c2;
+}
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    justify-content: center;
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+  }
+
+  .main {
+    padding: 15px;
+  }
+
+  #postsContainer {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .post {
+    width: 100%;
+  }
+}
+.stats i {
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 20px; 
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.stats i.liked {
+  color: #e74c3c;
+  transform: scale(1.3);
+}
+
+.heart-float {
+  position: absolute;
+  font-size: 18px; 
+  pointer-events: none;
+  animation: floatUp 1s ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-10px) scale(1.5); /* nảy lớn */
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-50px) scale(1);
+    opacity: 0;
+  }
+}
+.comment-stats .liked {
+  color: #0d6efd; /* màu xanh khi đã like */
+}
+
+.like-float {
+  position: absolute;
+  font-size: 14px;  /* nhỏ hơn một chút */
+  pointer-events: none;
+  animation: floatUp 1s ease-out forwards;
+}
+
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-top">
+        <h2>Nam-blogee</h2>
+        <a href="/index"><i class="fas fa-blog"></i> Blog</a>
+        <a href="/cartoonize"><i class="fas fa-image"></i> Tạo ảnh</a>
+        <a href="{{ url_for('account', user_id=session['user_id']) }}"><i class="fas fa-user"></i> Trang cá nhân</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
+</div>
+</div>
+  <div class="main">
+    <div class="container">
+      <h1>📝 Blog</h1>
+      <div class="search-bar" style="margin-bottom:20px; display:flex; gap:5px;">
+    <input type="text" id="userSearchInput" placeholder="Tìm kiếm username..." style="flex:1; padding:8px 12px; border-radius:8px; border:1px solid #ccc;">
+    <button id="searchBtn" style="padding:8px 12px; border:none; background:#1a4e8a; color:white; border-radius:8px; cursor:pointer;">
+        <i class="fas fa-search"></i> Tìm
+    </button>
+</div>
+<div id="searchResults" style="background:#fff; border:1px solid #ccc; border-radius:8px; margin-top:5px; max-height:200px; overflow-y:auto; display:none;"></div>
+      <div class="new-blog">
+        <form id="newPostForm" enctype="multipart/form-data">
+          <textarea name="content" placeholder="Viết bài mới..." rows="3" required></textarea>
+          <input type="file" name="image" accept="image/*" style="margin-top:10px;">
+          <br>
+          <button type="submit"><i class="fas fa-plus"></i> Thêm bài đăng</button>
+        </form>
+      </div>
+
+      <div id="postsContainer">
+  {% for post in posts %}
+    <div class="post" data-post-id="{{ post.id }}">
+      <div class="meta">
+        <span class="author">{{ post.name }}</span> • 
+        <span>{{ post.time.strftime('%d/%m/%Y %H:%M') }}</span>
+      </div>
+      <div class="content">{{ post.content }}</div>
+
+      {% if post.image %}
+        <img src="{{ url_for('static', filename=post.image) }}" alt="post image">
+      {% endif %}
+
+      {% if post.video %}
+        <video controls style="max-width:100%; border-radius:12px; margin-top:10px;">
+          <source src="{{ url_for('static', filename=post.video) }}" type="video/mp4">
+        </video>
+      {% endif %}
+
+      <div class="stats">
+        <i class="fas fa-heart {% if post.like %}liked{% endif %}" onclick="toggleLike({{ post.id }}, this)"></i>
+        <span class="likes-count">{{ post.like_count }}</span>
+        <span class="comments"><i class="fas fa-comment"></i> <span class="comments-count">{{ post.comments|length }}</span></span>
+      </div>
+
+      <div class="comments-list">
+        {% for comment in post.comments %}
+          <div class="comment" data-comment-id="{{ comment.id }}">
+    {% if comment.avatar %}
+        <img src="{{ url_for('static', filename=comment.avatar) }}" alt="avatar" class="comment-avatar">
+    {% else %}
+        <img src="/static/avatar_default.jpg" alt="avatar" class="comment-avatar">
+    {% endif %}
+    
+    <div class="comment-content">
+        <span class="comment-author">{{ comment.customer_name }}</span>
+        <span class="comment-time">{{ comment.time.strftime('%d/%m/%Y %H:%M') }}</span>
+        <p>{{ comment.content }}</p>
+    </div>
+
+    <div class="comment-stats">
+        <i class="fas fa-thumbs-up {% if comment.liked %}liked{% endif %}" 
+           onclick="toggleCommentLike({{ comment.id }}, this)"></i>
+        <span class="comment-likes-count">{{ comment.like_count }}</span>
+    </div>
+</div>
+        {% endfor %}
+      </div>
+
+      <form class="comment-form" onsubmit="addComment(event, {{ post.id }})">
+        <input type="text" name="content" placeholder="Viết bình luận..." required>
+        <button type="submit">Bình luận</button>
+      </form>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+async function toggleLike(postId, el) {
+  const data = new FormData();
+  data.append('post_id', postId);
+
+  try {
+    const res = await fetch('/like_post', { method: 'POST', body: data });
+    const json = await res.json();
+
+    const likesSpan = el.parentElement.querySelector('.likes-count');
+    likesSpan.textContent = json.like_count;
+
+    if (json.liked) {
+      el.classList.add('liked');
+      for (let i = 0; i < 5; i++) {
+        const heart = document.createElement('span');
+        heart.className = 'heart-float';
+        heart.textContent = '❤️';
+        const xOffset = (Math.random() - 0.5) * 40; 
+        heart.style.left = xOffset + 'px';
+        heart.style.top = '-10px';
+        el.appendChild(heart);
+        setTimeout(() => heart.remove(), 1000);
+      }
+      el.style.transform = 'scale(1.5)';
+      setTimeout(() => el.style.transform = '', 200);
+
+    } else {
+      el.classList.remove('liked');
+    }
+
+  } catch (err) { alert(err.message); }
+}
+
+
+async function addComment(e, postId) {
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('input[name="content"]');
+  const content = input.value.trim();
+  if (!content) return;
+
+  const data = new FormData();
+  data.append('content', content);
+
+  try {
+    const res = await fetch(`/add_comment/${postId}`, { method: 'POST', body: data });
+    const json = await res.json();
+
+    const postDiv = document.querySelector(`.post[data-post-id="${postId}"]`);
+    const commentsList = postDiv.querySelector('.comments-list');
+
+    const commentHTML = document.createElement('div');
+    commentHTML.className = 'comment new-comment';
+    commentHTML.innerHTML = `
+      <img src="${json.avatar_url || '/static/avatar_default.jpg'}" class="comment-avatar">
+      <span class="comment-author">${json.user}</span>: ${json.content}
+    `;
+    commentsList.appendChild(commentHTML);
+    setTimeout(() => commentHTML.classList.add('show'), 50);
+    setTimeout(() => commentHTML.classList.remove('new-comment'), 550);
+    const countSpan = postDiv.querySelector('.comments-count');
+    countSpan.textContent = parseInt(countSpan.textContent) + 1;
+
+    input.value = '';
+  } catch (err) { alert(err.message); }
+}
+async function toggleCommentLike(commentId, el) {
+    const data = new FormData();
+    data.append('comment_id', commentId);
+
+    try {
+        const res = await fetch('/like_comment', { method: 'POST', body: data });
+        if (!res.ok) throw new Error('Network error');
+        const json = await res.json();
+
+        const likesSpan = el.parentElement.querySelector('.comment-likes-count');
+        likesSpan.textContent = json.like_count;
+
+        if (json.liked) {
+          for (let i = 0; i < 5; i++) {
+                const likeEl = document.createElement('span');
+                likeEl.className = 'like-float';
+                likeEl.innerHTML = '<i class="fas fa-thumbs-up"></i>';
+                likeEl.style.left = (Math.random() - 0.5) * 30 + 'px';
+                likeEl.style.top = '-5px';
+                el.appendChild(likeEl);
+                setTimeout(() => likeEl.remove(), 1000);
+          }
+            el.classList.add('liked');
+        } else {
+            el.classList.remove('liked');
+        }
+    } catch (err) {
+        alert('Lỗi khi like bình luận: ' + err.message);
+    }
+}
+
+const searchInput = document.getElementById('userSearchInput');
+const searchBtn = document.getElementById('searchBtn');
+const resultsDiv = document.getElementById('searchResults');
+
+async function searchUsers(){
+    const query = searchInput.value.trim();
+    if(!query){
+        resultsDiv.style.display = 'none';
+        resultsDiv.innerHTML = '';
+        return;
+    }
+    try {
+        const res = await fetch(`/search_users?username=${encodeURIComponent(query)}`);
+        const data = await res.json();
+        
+        resultsDiv.innerHTML = '';
+        if(data.length === 0){
+            resultsDiv.style.display = 'none';
+            return;
+        }
+
+        data.forEach(user => {
+            const userEl = document.createElement('div');
+            userEl.style.display = 'flex';
+            userEl.style.alignItems = 'center';
+            userEl.style.gap = '10px';
+            userEl.style.padding = '8px 12px';
+            userEl.style.cursor = 'pointer';
+
+            const img = document.createElement('img');
+            img.src = user.avatar ? `/avatar/${user.avatar}` : '/avatar/avatar_default.jpg';
+            img.style.width = '30px';
+            img.style.height = '30px';
+            img.style.borderRadius = '50%';
+            img.style.objectFit = 'cover';
+
+            const usernameSpan = document.createElement('span');
+            usernameSpan.textContent = user.username;
+            userEl.appendChild(img);
+            userEl.appendChild(usernameSpan);
+            userEl.addEventListener('click', () => {
+                window.location.href = `/account/${user.id}`; 
+            });
+            userEl.addEventListener('mouseover', () => userEl.style.background='#f0f0f0');
+            userEl.addEventListener('mouseout', () => userEl.style.background='white');
+
+            resultsDiv.appendChild(userEl);
+        });
+
+        resultsDiv.style.display = 'block';
+    } catch(e){
+        console.error(e);
+    }
+}
+
+searchBtn.addEventListener('click', searchUsers);
+searchInput.addEventListener('keypress', function(e){
+    if(e.key === 'Enter'){
+        e.preventDefault();
+        searchUsers();
+    }
+});
+</script>

@@ -1,0 +1,89 @@
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    color: #333;
+  }
+  .container {
+    max-width: 720px;
+    margin: 40px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  h1 {
+    font-size: 2rem;
+    color: #ff6f61;
+    margin-bottom: 12px;
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  .dropzone {
+    border: 2px dashed #ff6f61;
+    border-radius: 12px;
+    padding: 40px 20px;
+    background: #fff7f5;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+  }
+  .dropzone:hover {
+    background: #ffe3dd;
+    transform: scale(1.02);
+  }
+  button, select, input[type="file"] {
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+  }
+  button {
+    background: #ff6f61;
+    color: #fff;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #e85c50;
+    transform: translateY(-2px);
+  }
+  select {
+    border: 1px solid #ddd;
+    background: #fafafa;
+  }
+  .preview img, .result img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-top: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  footer {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  #downloadLink {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  #downloadLink:hover {
+    background: #3e8e41;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
