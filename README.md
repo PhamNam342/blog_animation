@@ -63,6 +63,7 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 ---
 
 ## 📂 Project Structure
+
 ```
 nam_blog/
 ├─ models/ # Contains AI models (.onnx)
@@ -123,16 +124,22 @@ DB_CONFIG = {
     'port': '5432'
 }
 Create required tables: users, posts, comments, likes, avatars.
+
 ---
+
 ### 4️⃣ Configure Gmail
 MAIL_USERNAME = 'your_email@gmail.com'
 MAIL_PASSWORD = 'your_app_password'  # Use App Password
+
 ---
+
 ### 5️⃣ Run Flask Server
 ```bash
 python app.py
 Open browser: http://127.0.0.1:5000/
+
 ---
+
 ### 🔧 Running AI Models
 Example of rendering an image:
 from PIL import Image
