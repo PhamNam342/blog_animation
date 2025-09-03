@@ -6,106 +6,173 @@
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![Flask](https://img.shields.io/badge/flask-2.3-lightgrey)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
-![Users](https://img.shields.io/badge/users-120-blue)
-![Posts](https://img.shields.io/badge/posts-250-orange)
 
 ---
 
-## 📝 Giới thiệu
-**Nam Blogee** là một **web blog hiện đại** kết hợp **AI image rendering**, cho phép người dùng:  
+## 📝 Introduction
+**Nam Blogee** is a modern **web blog** platform combined with **AI image rendering**, allowing users to:
 
-- Đăng nhập và xác thực bằng **Gmail**.  
-- Tạo, chỉnh sửa, đăng và xoá các bài blog.  
-- Like và comment bài viết.  
-- Tìm kiếm người dùng khác.  
-- Render hình ảnh sang phong cách **anime/hoạt hình** với AI models.  
-- Lưu ảnh về máy hoặc đăng trực tiếp lên blog.  
+- Log in and verify their accounts via **Gmail**.  
+- Create, post, edit, and delete **blog posts**.  
+- Like and comment on posts.  
+- Search for other users by username.  
+- Convert images into **anime/cartoon style** using AI models.  
+- Download images or post them directly to the blog.  
 
 ---
 
-## 🎬 Demo Web
-**Giao diện web & AI Image Rendering:**
+## 🎬 Web Demo
+**Web interface & AI Image Rendering Demo:**
 
 ![Demo Blog](https://user-images.githubusercontent.com/yourusername/demo-blog.gif)
 
-> GIF minh họa: đăng nhập, tạo bài viết, render ảnh anime và lưu về máy.
+> The GIF shows login, creating a post, rendering an image to anime style, and downloading it.
 
 ---
 
-## ⚡ Tính năng nổi bật
+## ⚡ Main Features
 
-### 👤 Quản lý tài khoản
-- Đăng nhập/đăng ký bằng Gmail.  
-- Xác thực email để bảo mật.  
-- Quản lý thông tin cá nhân.  
+### 👤 Account Management
+- Register/Login via Gmail  
+- Email verification  
+- User profile management  
 
 ### ✍️ Blog
-- Tạo bài viết với hình ảnh.  
-- Like & Comment bài viết.  
-- Tìm kiếm và xem profile người dùng khác.  
+- Create posts with images  
+- Like & Comment on posts  
+- Search and view other users’ profiles  
 
 ### 🎨 AI Image Rendering
-Sử dụng các models `.onnx` để biến hình ảnh thành anime/hoạt hình:  
+Use `.onnx` models to transform images into anime/cartoon styles:
 
-| Model | Phong cách |
-|-------|------------|
+| Model | Style |
+|-------|-------|
 | `AnimeGANv2_Paprika.onnx` 🌸 | Anime Paprika |
-| `AnimeGANv2_Shinkai.onnx` 🌊 | Phong cách Shinkai |
-| `AnimeGANv3_PortraitSketch_25.onnx` ✏️ | Sketch chân dung |
-| `generator_hayao.onnx` 🎬 | Hayao Miyazaki |
+| `AnimeGANv2_Shinkai.onnx` 🌊 | Shinkai style |
+| `AnimeGANv3_PortraitSketch_25.onnx` ✏️ | Portrait Sketch |
+| `generator_hayao.onnx` 🎬 | Hayao Miyazaki style |
 
-### 💾 Quản lý hình ảnh
-- Upload ảnh từ máy.  
-- Render ảnh với AI models.  
-- Lưu ảnh về máy hoặc đăng trực tiếp lên blog.  
+### 💾 Image Management
+- Upload images from your device  
+- Render images with AI models  
+- Download or post images directly to the blog  
 
 ---
 
-## 📂 Cấu trúc dự án
+## 📂 Project Structure
 nam_blog/
-├─ models/ # Chứa các AI models (.onnx)
-│ ├─ AnimeGANv2_Paprika.onnx
-│ ├─ AnimeGANv2_Shinkai.onnx
-│ ├─ AnimeGANv3_PortraitSketch_25.onnx
-│ └─ generator_hayao.onnx
-├─ static/ # CSS, JS, hình ảnh tĩnh
+├─ models/ # Contains AI models (.onnx)
+├─ static/ # CSS, JS, static images
 │ ├─ avatar/
 │ ├─ images/
 │ ├─ script.js
 │ └─ style.css
-├─ templates/ # Các file HTML
+├─ templates/ # HTML templates
 │ ├─ account.html
 │ ├─ index.html
 │ ├─ login.html
 │ ├─ picture.html
 │ ├─ register.html
 │ └─ verify.html
-└─ app.py # File chính Flask
----
+├─ app.py # Main Flask application
+└─ requirements.txt # Python dependencies
 
-## 🛠️ Công nghệ sử dụng
-- **Python 3.x** & **Flask**
-- **ONNX Runtime** (chạy AI models)
-- **HTML / CSS / JavaScript**
-- **SMTP / Gmail API** cho xác thực email
+yaml
+Copy code
 
 ---
 
-## 🚀 Cài đặt & chạy dự án
+## 🛠️ Technologies Used
+- **Python 3.8+** & **Flask**  
+- **ONNX Runtime** (for AI models)  
+- **Pillow & OpenCV** (image processing)  
+- **NumPy** (array processing)  
+- **PostgreSQL** (database)  
+- **Flask-Mail** (Gmail email verification)  
+- **Werkzeug** (utilities, secure_filename)  
 
-1. **Clone repository**
+---
+
+## 🚀 Installation & Running
+
+### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
-Cài đặt dependencies
-
+2️⃣ Install dependencies
 bash
 Copy code
 pip install -r requirements.txt
-Chạy web
+3️⃣ Configure PostgreSQL Database
+Create database: nam_blog
 
+Add user and password, for example:
+
+python
+Copy code
+DB_CONFIG = {
+    'dbname': 'nam_blog',
+    'user': 'postgres',
+    'password': 'your_password',
+    'host': 'localhost',
+    'port': '5432'
+}
+Create required tables: users, posts, comments, likes, avatars.
+
+Note: Provide SQL scripts or ORM migration for easy database setup.
+
+4️⃣ Configure Gmail
+Update Gmail account info in app.py or config.py:
+
+python
+Copy code
+MAIL_USERNAME = 'your_email@gmail.com'
+MAIL_PASSWORD = 'your_app_password'  # Use App Password
+5️⃣ Run Flask Server
 bash
 Copy code
 python app.py
-Mở trình duyệt
-Truy cập: http://127.0.0.1:5000/
+Open browser: http://127.0.0.1:5000/
+
+🔧 Running AI Models
+Example of rendering an image:
+
+python
+Copy code
+from PIL import Image
+import onnxruntime as ort
+import numpy as np
+
+# Load model
+model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
+
+# Process input image and run inference
+# ...
+Users can upload images via the web interface, select a model, render, and download or post the result.
+
+🤝 Contributing
+Fork the repository
+
+Create a feature branch: git checkout -b feature/amazing-feature
+
+Commit your changes: git commit -m 'Add amazing feature'
+
+Push: git push origin feature/amazing-feature
+
+Open a Pull Request
+
+📄 License
+Personal / Academic project.
+
+👥 Authors
+Pham Nam – Developer & Student
+Email: your_email@gmail.com
+
+🙏 Acknowledgments
+Gmail API for email verification
+
+ONNX Runtime & open-source AI models
+
+Flask & Python libraries
+
+Web & AI tutorials on the Internet
