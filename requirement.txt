@@ -1,0 +1,8 @@
+Flask==2.3.2
+Flask-Mail==0.9.1
+numpy==1.25.2
+Pillow==10.1.0
+onnxruntime==1.16.0
+psycopg2-binary==2.9.9
+Werkzeug==2.3.7
+opencv-python==4.9.0.76
