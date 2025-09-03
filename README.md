@@ -23,9 +23,11 @@
 
 ## 🎬 Web Demo
 **Web interface & AI Image Rendering Demo:**
-
-<img width="1903" height="994" alt="image" src="https://github.com/user-attachments/assets/d1f29454-21a0-4cd9-a04b-2bd41e9aecb5" />
-
+<img width="1911" height="1004" alt="Screenshot 2025-09-03 131520" src="https://github.com/user-attachments/assets/16b43b2b-ceb0-4608-8877-ab2f05f6d772" />
+<img width="1891" height="1003" alt="Screenshot 2025-09-03 131548" src="https://github.com/user-attachments/assets/e9cb8c9c-6901-4dc5-8cae-95b535c215eb" />
+<img width="1907" height="1006" alt="Screenshot 2025-09-03 131602" src="https://github.com/user-attachments/assets/ba291701-028f-4693-b726-20559e54e3c6" />
+<img width="1881" height="1007" alt="Screenshot 2025-09-03 131652" src="https://github.com/user-attachments/assets/b44bfbf2-a51b-4ab0-b9a3-1c841bceaf50" />
+<img width="1903" height="994" alt="Screenshot 2025-09-03 131710" src="https://github.com/user-attachments/assets/58f246e8-7762-4d52-85bd-97f9c771bc6e" />
 
 > The GIF shows login, creating a post, rendering an image to anime style, and downloading it.
 
@@ -61,6 +63,7 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 ---
 
 ## 📂 Project Structure
+```
 nam_blog/
 ├─ models/ # Contains AI models (.onnx)
 ├─ static/ # CSS, JS, static images
@@ -78,8 +81,6 @@ nam_blog/
 ├─ app.py # Main Flask application
 └─ requirements.txt # Python dependencies
 
----
-
 ## 🛠️ Technologies Used
 - **Python 3.8+** & **Flask**  
 - **ONNX Runtime** (for AI models)  
@@ -94,13 +95,15 @@ nam_blog/
 ## 🚀 Installation & Running
 
 ### 1️⃣ Clone the repository
+```bash
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
 ### 2️⃣ Install dependencies
+```bash
 pip install -r requirements.txt
 ### 3️⃣ Configure PostgreSQL Database
+```bash
 Create database: nam_blog
-
 Add user and password, for example:
 DB_CONFIG = {
     'dbname': 'nam_blog',
@@ -115,6 +118,7 @@ Create required tables: users, posts, comments, likes, avatars.
 MAIL_USERNAME = 'your_email@gmail.com'
 MAIL_PASSWORD = 'your_app_password'  # Use App Password
 ### 5️⃣ Run Flask Server
+```bash
 python app.py
 Open browser: http://127.0.0.1:5000/
 
@@ -214,9 +218,12 @@ Pham Nam – Developer & Student
 Email: nam1234kan@gmail.com
 
 ### 🙏 Acknowledgments
+```
 Gmail API for email verification
 ONNX Runtime & open-source AI models
 Flask & Python libraries
 Hanoi University of Science and Technology
 Real estate data sources for Hanoi market
 Open source libraries and frameworks used
+
+**For questions or support, please contact the development team or create an issue in the repository.**
