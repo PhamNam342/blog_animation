@@ -63,6 +63,7 @@ Use `.onnx` models to transform images into anime/cartoon styles:
 ---
 
 ## 📂 Project Structure
+---
 ```
 nam_blog/
 ├─ models/ # Contains AI models (.onnx)
