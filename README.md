@@ -24,7 +24,8 @@
 ## 🎬 Web Demo
 **Web interface & AI Image Rendering Demo:**
 
-![Demo Blog](https://user-images.githubusercontent.com/yourusername/demo-blog.gif)
+<img width="1903" height="994" alt="image" src="https://github.com/user-attachments/assets/d1f29454-21a0-4cd9-a04b-2bd41e9aecb5" />
+
 
 > The GIF shows login, creating a post, rendering an image to anime style, and downloading it.
 
@@ -77,9 +78,6 @@ nam_blog/
 ├─ app.py # Main Flask application
 └─ requirements.txt # Python dependencies
 
-yaml
-Copy code
-
 ---
 
 ## 🛠️ Technologies Used
@@ -96,20 +94,14 @@ Copy code
 ## 🚀 Installation & Running
 
 ### 1️⃣ Clone the repository
-```bash
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
-2️⃣ Install dependencies
-bash
-Copy code
+### 2️⃣ Install dependencies
 pip install -r requirements.txt
-3️⃣ Configure PostgreSQL Database
+### 3️⃣ Configure PostgreSQL Database
 Create database: nam_blog
 
 Add user and password, for example:
-
-python
-Copy code
 DB_CONFIG = {
     'dbname': 'nam_blog',
     'user': 'postgres',
@@ -119,38 +111,88 @@ DB_CONFIG = {
 }
 Create required tables: users, posts, comments, likes, avatars.
 
-Note: Provide SQL scripts or ORM migration for easy database setup.
-
-4️⃣ Configure Gmail
-Update Gmail account info in app.py or config.py:
-
-python
-Copy code
+### 4️⃣ Configure Gmail
 MAIL_USERNAME = 'your_email@gmail.com'
 MAIL_PASSWORD = 'your_app_password'  # Use App Password
-5️⃣ Run Flask Server
-bash
-Copy code
+### 5️⃣ Run Flask Server
 python app.py
 Open browser: http://127.0.0.1:5000/
 
-🔧 Running AI Models
+### 🔧 Running AI Models
 Example of rendering an image:
-
-python
-Copy code
 from PIL import Image
 import onnxruntime as ort
 import numpy as np
+## 🗄 Database Schema
 
-# Load model
+### Main Tables
+
+- **users**: Stores user authentication and profile information  
+- **posts**: Stores blog posts with content, images, and metadata  
+- **comments**: Stores comments for each post  
+- **likes**: Tracks likes on posts  
+- **commnent_likes**: Tracks likes on comments  
+- **follows**: Track follow
+
+### Key Fields
+
+#### Users Table (`users`)
+| Field        | Type    | Description                        |
+|-------------|---------|------------------------------------|
+| id          | SERIAL  | Primary key                        |
+| username    | TEXT    | Unique username                    |
+| email       | TEXT    | Gmail account used for login       |
+| password    | TEXT    | Hashed password (if not OAuth)     |
+| avatar      | TEXT    | URL/path to user avatar            |
+| created_at  | TIMESTAMP | Account creation time            |
+
+#### Posts Table (`posts`)
+| Field       | Type      | Description                       |
+|------------|-----------|-----------------------------------|
+| id         | SERIAL    | Primary key                       |
+| user_id    | INTEGER   | Foreign key to `users.id`         |
+| title      | TEXT      | Blog post title                   |
+| caption    | TEXT      | Blog post content                 |
+| image_path | TEXT      | Path to uploaded or AI rendered image |
+| created_at | TIMESTAMP | Post creation time                |
+
+#### Comments Table (`comments`)
+| Field      | Type    | Description                        |
+|------------|---------|------------------------------------|
+| id         | SERIAL  | Primary key                        |
+| post_id    | INTEGER | Foreign key to `posts.id`          |
+| user_id    | INTEGER | Foreign key to `users.id`          |
+| content    | TEXT    | Comment content                     |
+| created_at | TIMESTAMP | Comment creation time            |
+
+#### Likes Table (`likes`)
+| Field    | Type    | Description                         |
+|----------|---------|-------------------------------------|
+| id       | SERIAL  | Primary key                         |
+| post_id  | INTEGER | Foreign key to `posts.id`           |
+| user_id  | INTEGER | Foreign key to `users.id`           |
+
+#### Comment_likes
+| Field      | Type    | Description                         |
+|------------|---------|-------------------------------------|
+| user_id    | INTEGER | Foreign key to `users.id`           |
+| comment_id | INTEGER | Foreign key to `comment.id`         |
+
+#### follows
+| Field      | Type    | Description                         |
+|------------|---------|-------------------------------------|
+| follower_id| INTEGER | Foreign key to `users.id`           |
+| followed_id | INTEGER| Foreign key to `users.id`           |
+
+# Load mmodel
+for example:
 model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
 
 # Process input image and run inference
 # ...
 Users can upload images via the web interface, select a model, render, and download or post the result.
 
-🤝 Contributing
+### 🤝 Contributing
 Fork the repository
 
 Create a feature branch: git checkout -b feature/amazing-feature
@@ -161,18 +203,20 @@ Push: git push origin feature/amazing-feature
 
 Open a Pull Request
 
-📄 License
+### Flask Configuration
+app.secret_key = 'your_secret_key'  # Change for production
+
+### 📄 License
 Personal / Academic project.
 
-👥 Authors
+### 👥 Authors
 Pham Nam – Developer & Student
-Email: your_email@gmail.com
+Email: nam1234kan@gmail.com
 
-🙏 Acknowledgments
+### 🙏 Acknowledgments
 Gmail API for email verification
-
 ONNX Runtime & open-source AI models
-
 Flask & Python libraries
-
-Web & AI tutorials on the Internet
+Hanoi University of Science and Technology
+Real estate data sources for Hanoi market
+Open source libraries and frameworks used
