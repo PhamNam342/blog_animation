@@ -80,7 +80,7 @@ nam_blog/
 │ └─ verify.html
 ├─ app.py # Main Flask application
 └─ requirements.txt # Python dependencies
-
+---
 ## 🛠️ Technologies Used
 - **Python 3.8+** & **Flask**  
 - **ONNX Runtime** (for AI models)  
@@ -98,9 +98,11 @@ nam_blog/
 ```bash
 git clone https://github.com/PhamNam342/nam_blog.git
 cd nam_blog
+---
 ### 2️⃣ Install dependencies
 ```bash
 pip install -r requirements.txt
+---
 ### 3️⃣ Configure PostgreSQL Database
 ```bash
 Create database: nam_blog
@@ -113,20 +115,22 @@ DB_CONFIG = {
     'port': '5432'
 }
 Create required tables: users, posts, comments, likes, avatars.
-
+---
 ### 4️⃣ Configure Gmail
 MAIL_USERNAME = 'your_email@gmail.com'
 MAIL_PASSWORD = 'your_app_password'  # Use App Password
+---
 ### 5️⃣ Run Flask Server
 ```bash
 python app.py
 Open browser: http://127.0.0.1:5000/
-
+---
 ### 🔧 Running AI Models
 Example of rendering an image:
 from PIL import Image
 import onnxruntime as ort
 import numpy as np
+---
 ## 🗄 Database Schema
 
 ### Main Tables
@@ -141,7 +145,7 @@ import numpy as np
 ### Key Fields
 
 #### Users Table (`users`)
-| Field        | Type    | Description                        |
+| Field        | Type    | Description                       |
 |-------------|---------|------------------------------------|
 | id          | SERIAL  | Primary key                        |
 | username    | TEXT    | Unique username                    |
@@ -151,14 +155,14 @@ import numpy as np
 | created_at  | TIMESTAMP | Account creation time            |
 
 #### Posts Table (`posts`)
-| Field       | Type      | Description                       |
-|------------|-----------|-----------------------------------|
-| id         | SERIAL    | Primary key                       |
-| user_id    | INTEGER   | Foreign key to `users.id`         |
-| title      | TEXT      | Blog post title                   |
-| caption    | TEXT      | Blog post content                 |
+| Field       | Type      | Description                          |
+|------------|-----------|---------------------------------------|
+| id         | SERIAL    | Primary key                           |
+| user_id    | INTEGER   | Foreign key to `users.id`             |
+| title      | TEXT      | Blog post title                       |
+| caption    | TEXT      | Blog post content                     |
 | image_path | TEXT      | Path to uploaded or AI rendered image |
-| created_at | TIMESTAMP | Post creation time                |
+| created_at | TIMESTAMP | Post creation time                    |
 
 #### Comments Table (`comments`)
 | Field      | Type    | Description                        |
@@ -166,7 +170,7 @@ import numpy as np
 | id         | SERIAL  | Primary key                        |
 | post_id    | INTEGER | Foreign key to `posts.id`          |
 | user_id    | INTEGER | Foreign key to `users.id`          |
-| content    | TEXT    | Comment content                     |
+| content    | TEXT    | Comment content                    |
 | created_at | TIMESTAMP | Comment creation time            |
 
 #### Likes Table (`likes`)
@@ -191,7 +195,7 @@ import numpy as np
 # Load mmodel
 for example:
 model = ort.InferenceSession("models/AnimeGANv2_Paprika.onnx")
-
+---
 # Process input image and run inference
 # ...
 Users can upload images via the web interface, select a model, render, and download or post the result.
@@ -206,17 +210,17 @@ Commit your changes: git commit -m 'Add amazing feature'
 Push: git push origin feature/amazing-feature
 
 Open a Pull Request
-
+---
 ### Flask Configuration
 app.secret_key = 'your_secret_key'  # Change for production
-
+---
 ### 📄 License
 Personal / Academic project.
-
+---
 ### 👥 Authors
 Pham Nam – Developer & Student
 Email: nam1234kan@gmail.com
-
+---
 ### 🙏 Acknowledgments
 ```
 Gmail API for email verification
